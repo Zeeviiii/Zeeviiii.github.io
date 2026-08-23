@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zeev Tapoohi — Python</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<style>
+  :root{
+    --bg:#080D16;
+    --panel:#0F1826;
+    --line:#1E2C42;
+    --ink:#E6EDF7;
+    --muted:#7D8FA9;
+    --cyan:#2DD4E8;
+    --blue:#4B8BBE;
+    --yellow:#FFD43B;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Sora',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px;margin:0 auto;padding:0 20px}
+
+  /* ---------- header ---------- */
+  header{padding:64px 0 28px}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--cyan);margin:0 0 14px
+  }
+  h1{
+    font-size:clamp(34px,6vw,56px);font-weight:800;
+    letter-spacing:-.02em;margin:0 0 10px;line-height:1.1
+  }
+  .tagline{color:var(--muted);max-width:56ch;margin:0 0 26px}
+  .links{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{
+    display:inline-block;padding:10px 18px;border-radius:8px;
+    text-decoration:none;font-size:14px;font-weight:600;
+    border:1px solid var(--line);color:var(--ink);background:var(--panel);
+    transition:border-color .15s,transform .15s
+  }
+  .btn:hover{border-color:var(--cyan);transform:translateY(-1px)}
+  .btn.primary{background:var(--cyan);color:#04121A;border-color:var(--cyan)}
+  .btn.primary:hover{filter:brightness(1.08)}
+
+  /* ---------- terminal ---------- */
+  .terminal{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;margin:38px 0
+  }
+  .tbar{
+    display:flex;align-items:center;gap:8px;
+    padding:11px 14px;border-bottom:1px solid var(--line)
+  }
+  .dot{width:11px;height:11px;border-radius:50%;background:#2A3B55}
+  .tname{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    color:var(--muted);margin-left:8px
+  }
+  .picker{padding:14px;border-bottom:1px solid var(--line)}
+  .picker label{
+    display:block;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:8px
+  }
+  select,textarea{
+    width:100%;background:#0A1220;color:var(--ink);
+    border:1px solid var(--line);border-radius:7px;padding:10px 12px;
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px
+  }
+  select:focus,textarea:focus{outline:2px solid var(--cyan);outline-offset:1px}
+  textarea{min-height:210px;resize:vertical;line-height:1.55;margin-top:12px}
+  .runbar{display:flex;align-items:center;gap:12px;padding:12px 14px}
+  #run{
+    background:var(--cyan);color:#04121A;border:0;border-radius:7px;
+    padding:9px 22px;font-weight:700;font-size:14px;cursor:pointer;
+    font-family:'Sora',sans-serif
+  }
+  #run:disabled{opacity:.45;cursor:not-allowed}
+  #status{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)}
+  #output{
+    margin:0;padding:16px;min-height:110px;
+    background:#060B14;border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px;
+    white-space:pre-wrap;word-break:break-word;color:#B8F5FF
+  }
+  #output .err{color:#FF8A8A}
+
+  /* ---------- sections ---------- */
+  section{padding:34px 0;border-top:1px solid var(--line)}
+  h2{
+    font-size:13px;font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.16em;text-transform:uppercase;
+    color:var(--yellow);font-weight:600;margin:0 0 18px
+  }
+  p{margin:0 0 12px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+  .card{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;padding:14px 16px
+  }
+  .card h3{
+    margin:0 0 4px;font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;font-weight:600;color:var(--cyan)
+  }
+  .card p{margin:0;font-size:13px;color:var(--muted)}
+  footer{
+    padding:30px 0 60px;color:var(--muted);font-size:13px;
+    border-top:1px solid var(--line)
+  }
+  a{color:var(--cyan)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Jerusalem, Israel</p>
+    <h1>Zeev Tapoohi</h1>
+    <p class="tagline">
+      Software Engineering diploma. Background in C, Java, C++, Android and Assembly.
+      Now writing Python — automation, scripting, and small tools that solve real problems at work.
+    </p>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/Zeeviiii/zeev-python-portfolio">View the code</a>
+      <a class="btn" href="https://www.linkedin.com/in/zeevtapoohi">LinkedIn</a>
+      <a class="btn" href="mailto:zv.tapoohii@gmail.com">Email</a>
+      <!-- Upload zeev_cv.pdf to this repo, then this button works -->
+      <a class="btn" href="zeev_cv.pdf" download>Download CV</a>
+    </div>
+  </header>
+
+  <div class="terminal">
+    <div class="tbar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="tname">python3 — live in your browser</span>
+    </div>
+
+    <div class="picker">
+      <label for="demo">Pick a program</label>
+      <select id="demo"></select>
+      <textarea id="code" spellcheck="false"></textarea>
+    </div>
+
+    <div class="runbar">
+      <button id="run" disabled>Run</button>
+      <span id="status">Loading Python…</span>
+    </div>
+
+    <pre id="output">Output appears here.</pre>
+  </div>
+
+  <section>
+    <h2>What is in the portfolio</h2>
+    <p>
+      Programs written by hand while working through Google IT Automation with Python.
+      Some are course practice. Some come from the sterile supply department where I work —
+      temperature checks on autoclaves, badge access rules, shift checklists.
+    </p>
+    <div class="grid">
+      <div class="card"><h3>zeev_heat.py</h3><p>Temperature check with warning thresholds.</p></div>
+      <div class="card"><h3>zeev_badge_check.py</h3><p>Access rules by department and role.</p></div>
+      <div class="card"><h3>zeev_calculator.py</h3><p>Menu-driven calculator with functions.</p></div>
+      <div class="card"><h3>zeev_checklist.py</h3><p>Shift checklist built on lists and loops.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Currently</h2>
+    <p>Finishing Crash Course on Python, then studying for PCAP certification.</p>
+  </section>
+
+  <footer>
+    Built with plain HTML and Pyodide. Python runs in your browser — nothing is sent to a server.
+  </footer>
+</div>
+
+<script>
+const DEMOS = [
+  {
+    name: "zeev_heat.py — sterilizer temperature check",
+    code:
+`# Checks if a sterilizer reached a safe temperature.
+
+def check_temperature(celsius):
+    if celsius >= 134:
+        return "OK - cycle complete"
+    elif celsius >= 121:
+        return "Low - extend the cycle"
+    else:
+        return "FAIL - do not release the load"
+
+
+readings = [138, 134, 126, 118]
+
+for value in readings:
+    print(value, "C  ->", check_temperature(value))
+`
+  },
+  {
+    name: "zeev_badge_check.py — badge access",
+    code:
+`# Decides if a badge can enter a department.
+
+access = {
+    "sterile_supply": ["staff", "manager"],
+    "operating_room": ["manager"],
+    "storage": ["staff", "manager", "visitor"],
+}
+
+
+def can_enter(department, role):
+    allowed = access.get(department, [])
+    return role in allowed
+
+
+print(can_enter("operating_room", "staff"))
+print(can_enter("storage", "visitor"))
+print(can_enter("sterile_supply", "manager"))
+`
+  },
+  {
+    name: "zeev_calculator.py — calculator",
+    code:
+`# Simple calculator built from functions.
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Cannot divide by zero"
+    return a / b
+
+
+print("5 + 3  =", add(5, 3))
+print("5 - 3  =", subtract(5, 3))
+print("5 * 3  =", multiply(5, 3))
+print("5 / 0  =", divide(5, 0))
+`
+  },
+  {
+    name: "Ask me something (uses input)",
+    code:
+`# input() opens a small box in the browser.
+
+name = input("Enter your name: ")
+print("Hello,", name)
+print("Your name has", len(name), "letters")
+`
+  }
+];
+
+const sel = document.getElementById("demo");
+const codeBox = document.getElementById("code");
+const out = document.getElementById("output");
+const runBtn = document.getElementById("run");
+const status = document.getElementById("status");
+
+DEMOS.forEach((d, i) => {
+  const o = document.createElement("option");
+  o.value = i;
+  o.textContent = d.name;
+  sel.appendChild(o);
+});
+codeBox.value = DEMOS[0].code;
+sel.addEventListener("change", () => {
+  codeBox.value = DEMOS[sel.value].code;
+  out.textContent = "Output appears here.";
+});
+
+let pyodide = null;
+
+function write(text) {
+  if (out.dataset.fresh !== "1") { out.textContent = ""; out.dataset.fresh = "1"; }
+  out.appendChild(document.createTextNode(text + "\n"));
+}
+
+async function boot() {
+  try {
+    pyodide = await loadPyodide();
+    pyodide.setStdout({ batched: write });
+    pyodide.setStderr({ batched: write });
+    pyodide.runPython(`
+import builtins, js
+
+def _input(prompt=""):
+    value = js.window.prompt(prompt if prompt else "Input:")
+    if value is None:
+        value = ""
+    print((prompt or "") + str(value))
+    return value
+
+builtins.input = _input
+`);
+    runBtn.disabled = false;
+    status.textContent = "Python ready.";
+  } catch (e) {
+    status.textContent = "Python failed to load. Check your connection.";
+  }
+}
+
+runBtn.addEventListener("click", async () => {
+  if (!pyodide) return;
+  out.textContent = "";
+  out.dataset.fresh = "1";
+  runBtn.disabled = true;
+  status.textContent = "Running…";
+  try {
+    await pyodide.runPythonAsync(codeBox.value);
+  } catch (err) {
+    const span = document.createElement("span");
+    span.className = "err";
+    span.textContent = String(err.message || err);
+    out.appendChild(span);
+  }
+  runBtn.disabled = false;
+  status.textContent = "Done.";
+});
+
+boot();
+</script>
+</body>
+</html>

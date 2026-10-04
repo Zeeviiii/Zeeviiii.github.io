@@ -209,7 +209,6 @@
     text-transform:uppercase;color:var(--muted);margin:0 0 20px
   }
   .meta b{color:var(--yellow);font-weight:500}
-  .meta .hename{font-family:'Heebo',var(--body);font-size:13px;letter-spacing:0;text-transform:none;color:#C2D2E6}
   h1{
     font-family:var(--display);
     font-size:clamp(40px,8.5vw,78px);font-weight:800;
@@ -521,6 +520,7 @@
   .fline{margin:0 0 9px;max-width:78ch}
   .fline:last-child{margin-bottom:0;opacity:.75}
   body.he .fline{font-family:'Heebo',var(--body)}
+  .fline bdi[lang="he"]{font-family:'Heebo',var(--body)}
 
   footer{
     padding:32px 0 70px;border-top:1px solid var(--line-soft);
@@ -773,7 +773,6 @@
 
   <header class="hero">
     <p class="meta">
-      <span class="hename" lang="he" dir="rtl">זאב תפוחי</span>
       <span>Jerusalem, Israel</span>
       <span>Sterile supply &rarr; <b>Python</b></span>
     </p>
@@ -976,7 +975,7 @@
   </section>
 
   <footer>
-    <p class="fline" data-he="© 2026 זאב תפוחי. כל הזכויות שמורות.">&copy; 2026 Zeev Tapoohi. All rights reserved.</p>
+    <p class="fline" data-he="© 2026 זאב תפוחי · <bdi>Zeev Tapoohi</bdi>. כל הזכויות שמורות.">&copy; 2026 Zeev Tapoohi · <bdi lang="he">זאב תפוחי</bdi>. All rights reserved.</p>
     <p class="fline" data-he="קוד הפייתון בתיק העבודות פורסם לצורכי לימוד ועיון. שאר תוכן האתר — טקסטים, עיצוב, תעודות ותמונות — אינו מיועד להעתקה, הפצה או שימוש מסחרי ללא אישור בכתב.">The Python code in the portfolio is published for learning and review. The rest of this site — text, design, certificates and images — may not be copied, redistributed or used commercially without written permission.</p>
     <p class="fline" data-he="האתר בטוח לשימוש: אין קובצי Cookie, אין מעקב, ואין איסוף נתונים. הקוד רץ במכשיר שלכם בלבד — שום דבר אינו נשלח לשרת. פרטים שנשלחים בטופס יצירת הקשר מגיעים אך ורק לתיבת הדואר של זאב.">This site is safe to use: no cookies, no tracking, no analytics and no data collection. Code runs on your own device only — nothing is sent to a server. Details submitted through the contact form go to Zeev's inbox and nowhere else.</p>
     <p class="fline" data-he="נבנה ב־HTML פשוט ו־Pyodide.">Built with plain HTML and Pyodide.</p>

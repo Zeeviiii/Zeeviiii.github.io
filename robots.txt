@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zeeviiii.github.io/sitemap.xml
+Sitemap: https://zeevtapoohi.com/sitemap.xml

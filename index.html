@@ -3,25 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zeev Tapoohi — Python</title>
-<meta name="description" content="Zeev Tapoohi — Python developer in Jerusalem, Israel. Practical Engineer in Software with a background in C, Java, C++, Android and Assembly. Portfolio of Python programs that run live in your browser.">
+<script>
+/* one address for the site: the old GitHub Pages address, the Cloudflare
+   preview address and www all move to https://zeevtapoohi.com */
+(function(){
+  var h = location.hostname;
+  if(/\.github\.io$/.test(h) || /\.workers\.dev$/.test(h) || h === "www.zeevtapoohi.com"){
+    location.replace("https://zeevtapoohi.com" + location.pathname + location.search + location.hash);
+  }
+})();
+</script>
+<title>Zeev Tapoohi · זאב תפוחי — Python</title>
+<meta name="description" content="Zeev Tapoohi (זאב תפוחי) — Python developer in Jerusalem, Israel. Practical Engineer in Software with a background in C, Java, C++, Android and Assembly. Portfolio of Python programs that run live in your browser.">
 <meta name="author" content="Zeev Tapoohi">
 <meta name="keywords" content="Zeev Tapoohi, זאב תפוחי, Python developer Israel, Python developer Jerusalem, junior Python developer, מפתח פייתון, מתכנת פייתון, junior developer Israel, automation, QA, Practical Engineer Software, הנדסאי תוכנה, PCAP, Google IT Automation with Python, portfolio">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="copyright" content="© 2026 Zeev Tapoohi. All rights reserved.">
 <meta name="rights" content="Content may not be copied, redistributed or used commercially without written permission.">
 <meta name="googlebot" content="index, follow">
-<link rel="canonical" href="https://zeeviiii.github.io/">
-<link rel="alternate" hreflang="en" href="https://zeeviiii.github.io/">
-<link rel="alternate" hreflang="he" href="https://zeeviiii.github.io/">
-<link rel="alternate" hreflang="x-default" href="https://zeeviiii.github.io/">
+<link rel="canonical" href="https://zeevtapoohi.com/">
+<link rel="alternate" hreflang="en" href="https://zeevtapoohi.com/">
+<link rel="alternate" hreflang="he" href="https://zeevtapoohi.com/">
+<link rel="alternate" hreflang="x-default" href="https://zeevtapoohi.com/">
 
 <!-- Google Search Console verification.
-     1. Go to search.google.com/search-console and add https://zeeviiii.github.io/
-     2. Choose the "HTML tag" method — Google shows a meta tag with a long code
-     3. Copy ONLY the code (the content="..." value) into the line below
-     4. Delete the two comment markers around that line, then commit
-     5. Back in Search Console press Verify, then Request Indexing
+     Recommended: add a "Domain" property for zeevtapoohi.com in
+     search.google.com/search-console and verify it with the DNS TXT record
+     Google gives you (add it in Cloudflare → DNS → Records). That needs no
+     change to this file and covers every address of the site.
+     Alternative ("URL prefix" property, https://zeevtapoohi.com/):
+     1. Choose the "HTML tag" method — Google shows a meta tag with a long code
+     2. Copy ONLY the code (the content="..." value) into the line below
+     3. Delete the two comment markers around that line, then commit
+     4. Back in Search Console press Verify, then Request Indexing
      Leave the line commented out until you have a real code — an empty
      tag verifies nothing and only adds noise to the page. -->
 <!-- <meta name="google-site-verification" content="PASTE_CODE_HERE"> -->
@@ -32,9 +46,9 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Zeev Tapoohi",
-  "alternateName": "זאב תפוחי",
-  "url": "https://zeeviiii.github.io/",
-  "image": "https://zeeviiii.github.io/assets/og-image.png",
+  "alternateName": ["זאב תפוחי", "Zeev Tapochi", "Zeev Tapuchi", "Zeev Tapuhi"],
+  "url": "https://zeevtapoohi.com/",
+  "image": "https://zeevtapoohi.com/assets/og-image.png",
   "email": "mailto:zv.tapoohii@gmail.com",
   "jobTitle": "Python Developer",
   "copyrightHolder": { "@type": "Person", "name": "Zeev Tapoohi" },
@@ -86,8 +100,8 @@
 <meta property="og:site_name" content="Zeev Tapoohi">
 <meta property="og:title" content="Zeev Tapoohi — writes Python">
 <meta property="og:description" content="Python programs that run live in your browser. Practical Engineer in Software · C, Java, C++, Android. Jerusalem, Israel.">
-<meta property="og:url" content="https://zeeviiii.github.io/">
-<meta property="og:image" content="https://zeeviiii.github.io/assets/og-image.png">
+<meta property="og:url" content="https://zeevtapoohi.com/">
+<meta property="og:image" content="https://zeevtapoohi.com/assets/og-image.png">
 <meta property="og:image:alt" content="Zeev Tapoohi — writes Python">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -98,7 +112,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Zeev Tapoohi — writes Python">
 <meta name="twitter:description" content="Python programs that run live in your browser.">
-<meta name="twitter:image" content="https://zeeviiii.github.io/assets/og-image.png">
+<meta name="twitter:image" content="https://zeevtapoohi.com/assets/og-image.png">
 
 <!-- icons -->
 <link rel="icon" href="assets/favicon.ico" sizes="any">
@@ -195,6 +209,7 @@
     text-transform:uppercase;color:var(--muted);margin:0 0 20px
   }
   .meta b{color:var(--yellow);font-weight:500}
+  .meta .hename{font-family:'Heebo',var(--body);font-size:13px;letter-spacing:0;text-transform:none;color:#C2D2E6}
   h1{
     font-family:var(--display);
     font-size:clamp(40px,8.5vw,78px);font-weight:800;
@@ -758,6 +773,7 @@
 
   <header class="hero">
     <p class="meta">
+      <span class="hename" lang="he" dir="rtl">זאב תפוחי</span>
       <span>Jerusalem, Israel</span>
       <span>Sterile supply &rarr; <b>Python</b></span>
     </p>

@@ -1,8 +1,6 @@
 # Zeeviiii.github.io
 
-My personal website.
-
-Live at: https://zeeviiii.github.io
+My personal website: **[ZeevTapoohi.com](https://zeevtapoohi.com/)**
 
 ## What Is Here
 
@@ -12,10 +10,18 @@ A single page with:
 - Contact form
 
 Programs are loaded automatically from
-https://github.com/Zeeviiii/zeev-python-portfolio
+https://github.com/Zeeviiii/zeev-python-portfolio,
+so a new program pushed there shows up on the site without touching this repository.
+
+## How It Is Served
+
+- This repository is the source.
+- Cloudflare Workers deploys it to [zeevtapoohi.com](https://zeevtapoohi.com/) on every push to `main`.
+- The old address, zeeviiii.github.io, still works and forwards to the new domain.
 
 ## Built With
 
-- HTML and CSS, no framework
+- HTML, CSS and JavaScript, no framework
 - Pyodide (Python in WebAssembly)
-- GitHub Pages
+- Cloudflare Workers (hosting, HTTPS, domain)
+- GitHub Pages (old address, forwarding only)

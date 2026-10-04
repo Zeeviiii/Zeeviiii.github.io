@@ -13,8 +13,8 @@
   }
 })();
 </script>
-<title>Zeev Tapoohi · זאב תפוחי — Python</title>
-<meta name="description" content="Zeev Tapoohi (זאב תפוחי) — Python developer in Jerusalem, Israel. Practical Engineer in Software with a background in C, Java, C++, Android and Assembly. Portfolio of Python programs that run live in your browser.">
+<title>Zeev Tapoohi · זאב תפוחי — Python, QA Automation &amp; DevOps</title>
+<meta name="description" content="Zeev Tapoohi (זאב תפוחי) — Python, QA Automation &amp; DevOps in Jerusalem, open to junior roles. 40+ Python programs that run live in your browser, with tests.">
 <meta name="author" content="Zeev Tapoohi">
 <meta name="keywords" content="Zeev Tapoohi, זאב תפוחי, Python developer Israel, Python developer Jerusalem, junior Python developer, מפתח פייתון, מתכנת פייתון, junior developer Israel, automation, QA, Practical Engineer Software, הנדסאי תוכנה, PCAP, Google IT Automation with Python, portfolio">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -92,6 +92,49 @@
   }
 }
 </script>
+
+<!-- structured data: the "Quick answers" section, as questions and answers -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Zeev Tapoohi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zeev Tapoohi (זאב תפוחי) is a Practical Engineer in Software from Jerusalem, Israel, with a background in C, Java, C++, Android and Assembly. After 14 years in a hospital sterile supply department, he is moving back into software, focusing on Python, QA automation and DevOps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What role is he looking for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Junior roles in Python, QA automation or DevOps in Israel. He is based in Jerusalem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I see on this site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "More than 40 Python programs he wrote himself, running live in your browser through Pyodide. Pick one, press Run, and answer its questions in the input box. The floor-checker program is covered by 14 automated tests that run on GitHub on every push."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did he use AI to build this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for the website itself: he built it with Claude and maintains it himself. The Python programs began as code he typed by hand; where AI later helped improve one or add tests, the commit history shows it."
+      }
+    }
+  ]
+}
+</script>
+
 
 <!-- link preview: WhatsApp, Facebook, LinkedIn -->
 <meta property="og:type" content="profile">
@@ -411,6 +454,18 @@
   section p:last-child{margin-bottom:0}
   .fact{font-family:var(--display);font-size:26px;font-weight:600;color:var(--ink);margin:0 0 6px;letter-spacing:-.02em}
   .fact + p{font-size:14.5px;color:var(--muted)}
+
+  /* ============ start with these three ============ */
+  .console{scroll-margin-top:70px}
+  .progs code{display:block;font-family:var(--mono);font-size:14.5px;font-weight:500;color:var(--ink);margin:0 0 8px;overflow-wrap:anywhere}
+  .progs .open{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--blue-lit)}
+  .progs .open:hover{text-decoration:underline}
+  body.he .progs code{direction:ltr;text-align:right}
+  body.he .progs .open{font-family:'Heebo',var(--body);letter-spacing:0}
+
+  /* ============ quick answers ============ */
+  .qa h3{font-family:var(--display);font-size:19px;font-weight:600;color:var(--ink);margin:0 0 7px;letter-spacing:-.01em}
+  body.he .qa h3{font-family:'Heebo',var(--display);font-weight:700;letter-spacing:0}
 
   /* ============ certificates modal ============ */
   #certmodal{
@@ -856,6 +911,27 @@
 
   <p class="caption" data-he="התוכניות נטענות ישירות ממאגר תיק העבודות — מוסיפים שם, מופיע כאן.">Programs load live from the portfolio repository — add one there, it appears here.</p>
 
+  <section id="start" class="progs">
+    <h2 data-he="כדאי להתחיל מהשלוש האלה">Start with these three</h2>
+    <div class="cols">
+      <div>
+        <code>sterile_department.py</code>
+        <p data-he="מדמה את מכונות העיקור במחלקה בעזרת שתי מחלקות (classes) ותפריט קטן: התחלת מחזור, סיום, וספירה של מה שפועל. מכונה שכבר פועלת לא תתחיל שוב.">Models the department's sterilizers with two classes behind a small menu: start a cycle, finish it, count what is running. A machine that is already running cannot be started again.</p>
+        <a class="open" href="https://github.com/Zeeviiii/zeev-python-portfolio/blob/main/sterile_department.py" target="_blank" rel="noopener" data-file="sterile_department.py" data-he="לפתיחה בקונסולה">Open in the console</a>
+      </div>
+      <div>
+        <code>zeev_hospital.py</code>
+        <p data-he="בודקת אם מחלקה נמצאת בקומה הנכונה בבית החולים. מילון במקום שרשרת של if, טיפול בקלט שגוי, ו־14 בדיקות אוטומטיות שרצות בכל העלאה.">Checks whether a department is on the right floor of the hospital. A dictionary instead of a chain of ifs, safe handling of bad input, and 14 automated tests that run on every push.</p>
+        <a class="open" href="https://github.com/Zeeviiii/zeev-python-portfolio/blob/main/zeev_hospital.py" target="_blank" rel="noopener" data-file="zeev_hospital.py" data-he="לפתיחה בקונסולה">Open in the console</a>
+      </div>
+      <div>
+        <code>zeev_sterilizer_check.py</code>
+        <p data-he="שואלת כמה מכונות יש, קוראת את הטמפרטורה של כל אחת, וסופרת כמה נמצאות בטווח העיקור, בין 121 ל־134 מעלות, וכמה לא.">Asks how many machines there are, reads each one's temperature, and counts how many are inside the 121–134°C sterilization window and how many are not.</p>
+        <a class="open" href="https://github.com/Zeeviiii/zeev-python-portfolio/blob/main/zeev_sterilizer_check.py" target="_blank" rel="noopener" data-file="zeev_sterilizer_check.py" data-he="לפתיחה בקונסולה">Open in the console</a>
+      </div>
+    </div>
+  </section>
+
   <section>
     <h2 data-he="איך הגעתי לכאן">How I got here</h2>
     <div class="cols">
@@ -934,6 +1010,28 @@
         <p data-he="Pyodide מריץ CPython בדפדפן. אין שרת שמריץ את הקוד, ואין מה לשלוח אליו.">Pyodide runs CPython in the browser. No server executes the code, so there is nothing to send to one.</p>
         <p class="fact" style="margin-top:22px" data-he="הכל גלוי">Nothing hidden</p>
         <p data-he="כל האתר הוא קובץ אחד. אפשר לפתוח את מקור הדף ולקרוא כל שורה.">The whole site is a single file. Open the page source and read every line.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="answers" class="qa">
+    <h2 data-he="תשובות קצרות">Quick answers</h2>
+    <div class="cols">
+      <div>
+        <h3 data-he="מי זה זאב תפוחי?">Who is Zeev Tapoohi?</h3>
+        <p data-he="זאב תפוחי (<bdi>Zeev Tapoohi</bdi>) הוא הנדסאי תוכנה מירושלים, עם רקע ב־C, Java, C++, אנדרואיד ואסמבלי. אחרי 14 שנים במחלקת אספקה סטרילית בבית חולים, הוא חוזר לעולם התוכנה, עם התמקדות בפייתון, אוטומציית QA ו־DevOps.">Zeev Tapoohi (<bdi lang="he">זאב תפוחי</bdi>) is a Practical Engineer in Software from Jerusalem, Israel, with a background in C, Java, C++, Android and Assembly. After 14 years in a hospital sterile supply department, he is moving back into software, focusing on Python, QA automation and DevOps.</p>
+      </div>
+      <div>
+        <h3 data-he="איזה תפקיד הוא מחפש?">What role is he looking for?</h3>
+        <p data-he="משרות ג׳וניור בפייתון, אוטומציית QA או DevOps בישראל. הוא גר בירושלים.">Junior roles in Python, QA automation or DevOps in Israel. He is based in Jerusalem.</p>
+      </div>
+      <div>
+        <h3 data-he="מה אפשר לראות באתר?">What can I see on this site?</h3>
+        <p data-he="יותר מ־40 תוכניות פייתון שהוא כתב בעצמו, שרצות בדפדפן שלכם דרך Pyodide. בוחרים תוכנית, לוחצים הרצה ועונים על השאלות בתיבת הקלט. התוכנית לבדיקת קומות של מחלקות מכוסה ב־14 בדיקות אוטומטיות שרצות ב־GitHub בכל העלאה.">More than 40 Python programs he wrote himself, running live in your browser through Pyodide. Pick one, press Run, and answer its questions in the input box. The floor-checker program is covered by 14 automated tests that run on GitHub on every push.</p>
+      </div>
+      <div>
+        <h3 data-he="האם הוא השתמש ב־AI?">Did he use AI to build this?</h3>
+        <p data-he="כן, באתר עצמו: הוא בנה אותו בעזרת Claude ומתחזק אותו בעצמו. תוכניות הפייתון התחילו כקוד שהוא הקליד ביד; איפה ש־AI עזר אחר כך לשפר תוכנית או להוסיף בדיקות, היסטוריית ה־commits מראה את זה.">Yes, for the website itself: he built it with Claude and maintains it himself. The Python programs began as code he typed by hand; where AI later helped improve one or add tests, the commit history shows it.</p>
       </div>
     </div>
   </section>
@@ -1117,6 +1215,18 @@ async function openFile(name,btn){
     codeBox.value = "# Could not load " + name;
   }
 }
+
+/* ---------- "Start with these three": open the program in the console ---------- */
+document.querySelectorAll(".progs [data-file]").forEach(link => {
+  link.addEventListener("click", e => {
+    const name = link.dataset.file;
+    const btn = [...filesBox.querySelectorAll(".item")].find(b => b.textContent === name);
+    if(!btn) return;                 // list not loaded yet: the link opens the file on GitHub
+    e.preventDefault();
+    openFile(name, btn);
+    document.querySelector(".console").scrollIntoView({behavior: "smooth", block: "start"});
+  });
+});
 
 /* ---------- filter the program list ---------- */
 const fileSearch = document.getElementById("fileSearch");

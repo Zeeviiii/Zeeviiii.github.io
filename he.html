@@ -12,6 +12,15 @@
     location.replace("https://zeevtapoohi.com" + location.pathname + location.search + location.hash);
   }
 })();
+/* Hebrew page: a refresh goes back to the English page */
+(function(){
+  try {
+    var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+    var reloaded = nav ? nav.type === "reload"
+                       : (performance.navigation && performance.navigation.type === 1);
+    if(reloaded) location.replace("/" + location.search + location.hash);
+  } catch(e) {}
+})();
 </script>
 <title>זאב תפוחי — Python, אוטומציית QA ו־DevOps</title>
 <meta name="description" content="זאב תפוחי — Python, אוטומציית QA ו־DevOps בירושלים, פתוח למשרות ג׳וניור. יותר מ־40 תוכניות Python שרצות בדפדפן, עם בדיקות אוטומטיות.">

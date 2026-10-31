@@ -521,7 +521,8 @@
   .certwrap .verify:hover{text-decoration:underline}
   body.he .certwrap .verify{font-family:'Heebo',var(--body);font-size:14px;direction:rtl;text-align:right}
   .cert img{
-    width:100%;aspect-ratio:1/1.18;object-fit:cover;object-position:top center;
+    width:100%;aspect-ratio:1/1.18;object-fit:contain;object-position:center;
+    padding:8px;box-sizing:border-box;
     display:block;background:#0B1526;border-bottom:1px solid var(--line-soft)
   }
   .cert .cap{
@@ -1128,7 +1129,7 @@
       <div class="certwrap">
         <button class="cert" data-src="certificates/coursera-python-crash-course.jpg">
           <img src="certificates/coursera-python-crash-course.jpg" alt="Zeev Tapoohi — Crash Course on Python, Google certificate on Coursera, 2026" loading="lazy" decoding="async">
-          <span class="cap"><b data-he="Crash Course on Python">Crash Course on Python</b><i data-he="Google · Coursera · אוקטובר 2026">Google · Coursera · October 2026</i></span>
+          <span class="cap"><b data-he="קורס מזורז בפייתון">Crash Course on Python</b><i data-he="Google · Coursera · אוקטובר 2026">Google · Coursera · October 2026</i></span>
         </button>
         <a class="verify" href="https://www.coursera.org/account/accomplishments/verify/L5K6BDIC7RHP" target="_blank" rel="noopener" data-he="אימות התעודה באתר <bdi>Coursera</bdi> ↗">Verify on Coursera ↗</a>
       </div>
